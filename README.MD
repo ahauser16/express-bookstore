@@ -34,10 +34,17 @@ Your application currently consists of the following routes:
 ## **Part One - Getting Started + Adding Validation**
 
 Before you get started, read through the code to make sure you understand what’s going on here.
+- NB install the dependencies with `npm install`.
 
-Create your database and then run the ***data.sql*** file. You can find the database name in the ***config.js*** file.
+- [x] Create your database (`CREATE DATABASE bookstore;`) and then run the ***data.sql*** file (`psql -d bookstore -f data.sql`). You can find the database name in the ***config.js*** file.
 
-Use JSONSchema to validate the creation and updating of your books! Display an error message containing all of the validation errors if book creation or updating fails.
+- [x] Use JSONSchema to validate the creation and updating of your books! Display an error message containing all of the validation errors if book creation or updating fails.
+  - I refactored the `config.js` file to use `dotenv` so I could keep my `psql` username and password.
+  - I added the scripts below to the `script` property of the `package.json` file: 
+    - `"start": "node server.js",`
+      - `npm start` will start the application using the development database
+    - `"start:test": "NODE_ENV=test node server.js",`
+      - `npm run start:test` command starts the application using the ***test*** development database
 
 ## **Part Two - Add Tests**
 

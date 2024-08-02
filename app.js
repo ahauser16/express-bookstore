@@ -11,6 +11,12 @@ const bookRoutes = require("./routes/books");
 
 app.use("/books", bookRoutes);
 
+// Add a route for the root URL
+app.get("/", (req, res) => {
+  res.send("Welcome to the Bookstore API!");
+});
+
+
 /** 404 handler */
 
 app.use(function (req, res, next) {
